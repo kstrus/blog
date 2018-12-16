@@ -1,9 +1,12 @@
 import React from 'react';
+import PostsList from './PostsList';
 
 class App extends React.Component {
     render() {
         return (
-            <div>Blog App</div>
+            <div className="ui container" style={{ marginTop: '20px' }}>
+                <PostsList />
+            </div>
         );
     }
 }
