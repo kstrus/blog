@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPosts } from '../actions';
+import AuthorName from './AuthorName';
 
 class PostsList extends React.Component {
     componentDidMount() {
@@ -9,26 +10,34 @@ class PostsList extends React.Component {
     }
 
     render() {
-        const list = this.props.postsList.map((post) => {
+        const list = this.props.posts.map((post) => {
             return (
-                <div key={post.id}>{post.title}</div>
+                <div key={post.id} className="item">
+                    <i className="large middle aligned icon user" />
+                    <div className="content">
+                        <div className="header">{post.title}</div>
+                        <div className="description">{post.body}</div>
+                        <AuthorName userId={post.userId}/>
+                    </div>
+                </div>
             );
         });
 
         return (
-            <div>{list}</div>
+            <div className="ui relaxed divided list">{list}</div>
         );
     }
 }
 
 PostsList.propTypes = {
-    postsList: PropTypes.array,
+    posts: PropTypes.array,
+    users: PropTypes.array,
     fetchPosts: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
     return {
-        postsList: state.postsList
+        posts: state.posts
     };
 };
 
