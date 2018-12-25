@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 class AuthorName extends React.Component {
-    componentDidMount() {
-        this.props.fetchUser(this.props.userId);
-    }
-
     render() {
         const { user } = this.props;
 
@@ -23,8 +18,7 @@ class AuthorName extends React.Component {
 
 AuthorName.propTypes = {
     userId: PropTypes.number,
-    user: PropTypes.object,
-    fetchUser: PropTypes.func
+    user: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -33,6 +27,4 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, {
-    fetchUser: fetchUser
-})(AuthorName);
+export default connect(mapStateToProps)(AuthorName);

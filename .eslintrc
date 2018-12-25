@@ -21,7 +21,7 @@
         "max-len": ["error", 140, { "ignorePattern": "gettext", "ignoreRegExpLiterals": true }],
         "no-param-reassign": ["error", { "props": false }],
         "no-plusplus": 0,
-        "no-underscore-dangle": ["error", { "allowAfterThis": true, "allow": ["_index"]} ],
+        "no-underscore-dangle": 0,
         "space-before-function-paren": ["error", "never"],
         "no-new": 0,
         "func-names": ["error", "never"],
